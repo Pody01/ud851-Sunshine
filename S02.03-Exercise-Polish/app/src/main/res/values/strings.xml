@@ -28,6 +28,7 @@
     <string name="action_refresh">Refresh</string>
 
     <!--TODO (1) Add a string resource for your error message-->
+    <string name="loading_data_fail">Loading data fail. Please try again.</string>
 
 
     <!-- - - - - - - - - - - - - -->
