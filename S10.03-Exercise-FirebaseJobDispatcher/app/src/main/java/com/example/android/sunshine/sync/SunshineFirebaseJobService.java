@@ -1,3 +1,4 @@
+package com.example.android.sunshine.sync;
 /*
  * Copyright (C) 2016 The Android Open Source Project
  *
@@ -23,3 +24,40 @@
 //              TODO (6) Once the weather data is sync'd, call jobFinished with the appropriate arguments
 
 //  TODO (7) Override onStopJob, cancel the ASyncTask if it's not null and return true
+
+import android.os.AsyncTask;
+
+import com.firebase.jobdispatcher.JobParameters;
+import com.firebase.jobdispatcher.JobService;
+
+public class SunshineFirebaseJobService extends JobService {
+
+    AsyncTask mFetchWeatherTask;
+
+    @Override
+    public boolean onStartJob(final JobParameters job) {
+        mFetchWeatherTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                SunshineSyncTask.syncWeather(getApplicationContext());
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                super.onPostExecute(o);
+                jobFinished(job, false);
+            }
+        };
+        mFetchWeatherTask.execute();
+        return true;
+    }
+
+    @Override
+    public boolean onStopJob(JobParameters job) {
+        if (mFetchWeatherTask != null) {
+            mFetchWeatherTask.cancel(true);
+        }
+        return true;
+    }
+}

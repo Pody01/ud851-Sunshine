@@ -14,10 +14,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<!-- COMPLETED (3) Create a touch selector called today_touch_selector for the today list item layout -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/colorPrimaryDark" android:state_pressed="true" />
 
-<resources>
-    <bool name="show_notifications_by_default">true</bool>
-    <!-- TODO (3) Add a bool called use_today_layout and set it to false -->
-    <bool name="use_today_layout">false</bool>
+    <item android:drawable="@color/colorPrimaryDark" android:state_activated="true" />
 
-</resources>
+    <item android:drawable="@color/colorPrimaryDark" android:state_selected="true" />
+
+    <item android:drawable="@color/colorPrimary" />
+</selector>

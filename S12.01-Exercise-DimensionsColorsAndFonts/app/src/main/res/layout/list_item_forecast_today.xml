@@ -107,6 +107,7 @@
      - ignored on devices that run an Android version less than 16.                              -
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <TextView
+        android:fontFamily="sans-serif-light"
         android:id="@+id/high_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -128,6 +129,7 @@
      - ignored on devices that run an Android version less than 16.                              -
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <TextView
+        android:fontFamily="sans-serif-light"
         android:id="@+id/low_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
